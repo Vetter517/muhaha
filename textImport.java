@@ -1,4 +1,3 @@
-package groupWork;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,6 +17,5 @@ public class textImport {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-	}
-
-}
+	}//end main
+}//end class
