@@ -1,9 +1,6 @@
-package groupWork;
-
 import java.util.Scanner;
 
 public class fibonnaci {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner input = new Scanner(System.in);
@@ -18,21 +15,4 @@ public class fibonnaci {
 			temp2=out;
 		}
 	}//end main
-	
-	
-	
-	
-	
-	
-	
-/*	
-	public static int fib(int n) {
-		
-		if(n<=1) {
-			System.out.println(n);
-			return n;
-		}
-		return fib(n-1)+fib(n-2);
-	}
-*/
 }//end class
