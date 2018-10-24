@@ -1,0 +1,46 @@
+public class Lesson4 {
+	
+	   public static void main(String[] args) {
+		   
+		   double x1,x2,y1,y2, m, b, mathing;
+		  
+		   //taking user input first point then second point
+		   System.out.println("Please enter the X coordinate of the first point");
+		   Scanner scanning = new Scanner(System.in);
+		   x1 = scanning.nextInt();
+		   System.out.println("Please enter the Y coordinate of the first point");
+		   y1 = scanning.nextInt();
+		   System.out.println("Please enter the X coordinate of the second point");
+		   x2 = scanning.nextInt();
+		   System.out.println("Please enter the Y coordinate of the second point");
+		   y2 = scanning.nextInt();
+		   scanning.close();
+		   //System.out.println(x1 + " " + y1 + " " + x2 + " " + y2);
+		  
+		   //check for same point
+		   if(x1 == x2 && y1 == y2) {
+			   System.out.println("These two points are the same. NO LINE!!!");
+			   System.exit(0);
+		   }
+		   //check for vertical line
+		   if(x2 - x1 == 0) {
+			   System.out.println("The Line is vertical so the equation is: x = " + x1);
+			   System.exit(0);
+		   }
+		   //check for horizontal line
+		   if(y2 - y1 == 0) {
+			   System.out.println("The Line is horizontal so the equation is: y = " + y1);
+			   System.exit(0);
+		   }
+		   //solve for m
+		   m = (y2-y1) / (x2-x1);
+		   
+		   //Below comments are how to get b with the points given
+		   //mathing = m*x1;
+		   //b = y1 - mathing;
+		   
+		   //print the coordinates and the equation of the line
+		   System.out.println("The equation of the line through the points ("+x1+","+y1+") & "+ "("+x2 +","+y2+")" +" is: y = " + m + "x + b");
+		   
+	   }
+}
