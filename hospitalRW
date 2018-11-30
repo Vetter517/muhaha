@@ -1,0 +1,42 @@
+package hospital;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class hospitalRW {
+	
+	
+	public static void createHospital(room[] roomArray, String filename) {
+		try {
+			@SuppressWarnings("resource")
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			String line;
+	        int cnt=0;
+	        int i=0;
+			
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+	    } catch (IOException ex) {
+	    	ex.printStackTrace();
+	    }
+	}//end creation
+	
+	public static void closeHospital(room[] roomArray, String filename) {
+		try {
+			@SuppressWarnings("resource")
+			BufferedReader br = new BufferedReader(new FileReader(filename));
+			String line;
+	        int cnt=0;
+	        int i=0;
+			
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+	    } catch (IOException ex) {
+	    	ex.printStackTrace();
+	    }
+	}//end creation
+}
