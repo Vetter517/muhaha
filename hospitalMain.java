@@ -44,8 +44,7 @@ public class hospitalMain {
 				int time = Integer.parseInt(scanner.nextLine());
 				p.setTimeStay(time);
 				System.out.println("Critical? (true or false):");
-				Boolean b = Boolean.getBoolean(scanner.nextLine());
-				p.setIsCritical(b);
+				p.setIsCritical(scanner.nextLine());
 				System.out.println("Reason for Admitance:");
 				String reason = scanner.nextLine();
 				p.setIllness(reason);
@@ -67,7 +66,7 @@ public class hospitalMain {
 				System.out.println("Enter the room that you want to view (0-7 normal,8 surgery, 9 emergency room)");
 				complexMethods.specificCheck(rooms[scanner.nextInt()]);
 			}else if(input.equals("5")) {
-				
+				complexMethods.movement(rooms);
 			}else if(input.equals("6")) {
 				scanner.close();
 				System.out.println("Exiting the Program. File will be saved.");
