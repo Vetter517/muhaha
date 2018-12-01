@@ -61,21 +61,16 @@ public class room {
 	public static int reserveRoom(room[] roomArray, patient patient) {
 		int i=0;
 		room temp;
-		int checkedIn=0;
 		for(i=0;i<roomArray.length;i++) {
 			temp = roomArray[i];
 			if(patient.isCritical==false) {
 				if(temp.isOccupied==false) {
 					temp.patient = patient;
 					roomArray[i]=temp;
-					checkedIn=1;
 					roomArray[i].isOccupied=true;
 					return i;
 				}
 			}
-		}
-		if (checkedIn == 0) {
-			//print no rooms available
 		}
 		return 30;
 	}//end reserve rooms
