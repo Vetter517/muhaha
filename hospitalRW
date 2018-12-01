@@ -51,17 +51,42 @@ public class hospitalRW {
 	}//end creation
 	
 	public static void closeHospital(room[] roomArray, String filename) {
-		try {
-			@SuppressWarnings("resource")
-			BufferedReader br = new BufferedReader(new FileReader(filename));
-			String line;
-	        int cnt=0;
-	        int i=0;
-			
-		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();
-	    } catch (IOException ex) {
-	    	ex.printStackTrace();
+		try{
+	        File file = new File("hospitalText.txt");
+	        FileWriter fw = new FileWriter(file.getAbsoluteFile());
+	        BufferedWriter bw = new BufferedWriter(fw);
+	        int j = 0;
+	        room temp;
+	        patient p;
+	        for(j=0;j<roomArray.length;j++) {
+	        	temp = roomArray[j];
+	        	bw.write(Integer.toString(temp.getNumber()));
+	        	bw.newLine();
+	        	bw.write(temp.getRoomType());
+	        	bw.newLine();
+	        	p = temp.getPatient();
+	        	if (p != null){
+	        		bw.write(temp.patient.getName());
+	        		bw.newLine();
+	        		bw.write(temp.patient.getEmail());
+	        		bw.newLine();
+	        		bw.write(temp.patient.getTimeStay());
+	        		bw.newLine();
+	        		bw.write(String.valueOf(temp.patient.getIsCritical()));
+	        		bw.newLine();
+	        		bw.write(temp.patient.getIllness());
+	        		bw.newLine();
+	        	}
+	        	//After each room, put a '/' an then add a new line if we still have rooms to add.
+		        bw.write("/");
+		        if(j!=29) {
+		        	bw.newLine();
+		        }
+	        }
+	        bw.close();
+	        System.out.println("Have a great day!");
+	    }catch(IOException e){
+	        e.printStackTrace();
 	    }
-	}//end creation
-}
+	}//end close
+}//end class
