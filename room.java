@@ -55,7 +55,7 @@ public class room {
 	}//end check
 	
 	static void specificCheck(room r) {
-		System.out.println("Looking for a specific room? Owo");
+		System.out.println("Looking for a specific room?");
 	}
 	
 	public static int reserveRoom(room[] roomArray, patient patient) {
