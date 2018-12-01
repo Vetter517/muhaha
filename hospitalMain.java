@@ -11,19 +11,19 @@ public class hospitalMain {
 	public static void main(String[] args) {
 		System.out.println("Booting Up Hospital System...");
 		
-		room[] roomArray = new room[30];
+		room[] roomArray = new room[10];
 		String filename = "hospitalText.txt";
-		hospital.hospitalRW.createHospital(roomArray, filename);
+		hospitalRW.createHospital(roomArray, filename);
 		System.out.println("System ready.\n");
 		mainMenu(roomArray);
-		hospital.hospitalRW.closeHospital(roomArray,filename);
+		hospitalRW.closeHospital(roomArray,filename);
 	}//end main
 
 	public static void mainMenu(room[] rooms) {
 		Scanner scanner = new Scanner(System.in);
 		String input="";
 		while (!input.equals("6")){
-			System.out.println("What would you like to do? (Enter the number next to the option you would like to select)");
+			System.out.println("\nWhat would you like to do? (Enter the number next to the option you would like to select)");
 			System.out.println("1. Admit Patient into Hospital");
 			System.out.println("2. Release Patient from Hospital");
 			System.out.println("3. View all of the Rooms");
@@ -43,34 +43,33 @@ public class hospitalMain {
 				System.out.println("Time Staying:");
 				int time = Integer.parseInt(scanner.nextLine());
 				p.setTimeStay(time);
-				System.out.println("Critical?:");
+				System.out.println("Critical? (true or false):");
 				Boolean b = Boolean.getBoolean(scanner.nextLine());
 				p.setIsCritical(b);
 				System.out.println("Reason for Admitance:");
 				String reason = scanner.nextLine();
 				p.setIllness(reason);
 				//ADD PATIENT TO ARRAY
-				if(p.isCritical==false) {
-					
-				}
+				complexMethods.reserveRoom(rooms, p);
 			}else if(input.equals("2")) {
 				System.out.println("Please enter the room number the patient is staying in:");
 				int number = Integer.parseInt(scanner.nextLine());
 				if(number<29 && rooms[number].getPatient()!=null) {
-					room.releaseRoom(rooms[number]);
+					complexMethods.releaseRoom(rooms[number]);
 				}else if(number<29 && rooms[number].getPatient()==null){
 					System.out.println("You have entered a room that is currently open.");
 				}else {
 					System.out.println("Invalid room number. Please enter a number from 0 to 29.\n");
 				}
 			}else if(input.equals("3")) {
-				hospital.room.roomCheck(rooms);
+				complexMethods.roomCheck(rooms);
 			}else if(input.equals("4")) {
 				System.out.println("Enter the room that you want to view (0-24 normal, 25-26 ER, 27-29 surgery)");
-				hospital.room.specificCheck(rooms[scanner.nextInt()]);
+				complexMethods.specificCheck(rooms[scanner.nextInt()]);
 			}else if(input.equals("5")) {
 				
 			}else if(input.equals("6")) {
+				scanner.close();
 				System.out.println("Exiting the Program. File will be saved.");
 				break;
 			}
