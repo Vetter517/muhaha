@@ -54,17 +54,17 @@ public class hospitalMain {
 			}else if(input.equals("2")) {
 				System.out.println("Please enter the room number the patient is staying in:");
 				int number = Integer.parseInt(scanner.nextLine());
-				if(number<29 && rooms[number].getPatient()!=null) {
+				if(number<10 && rooms[number].getPatient()!=null) {
 					complexMethods.releaseRoom(rooms[number]);
-				}else if(number<29 && rooms[number].getPatient()==null){
+				}else if(number<10 && rooms[number].getPatient()==null){
 					System.out.println("You have entered a room that is currently open.");
 				}else {
-					System.out.println("Invalid room number. Please enter a number from 0 to 29.\n");
+					System.out.println("Invalid room number. Please enter a number from 0 to 9.\n");
 				}
 			}else if(input.equals("3")) {
 				complexMethods.roomCheck(rooms);
 			}else if(input.equals("4")) {
-				System.out.println("Enter the room that you want to view (0-24 normal, 25-26 ER, 27-29 surgery)");
+				System.out.println("Enter the room that you want to view (0-7 normal,8 surgery, 9 emergency room)");
 				complexMethods.specificCheck(rooms[scanner.nextInt()]);
 			}else if(input.equals("5")) {
 				
@@ -76,6 +76,4 @@ public class hospitalMain {
 			
 		}//end while
 	}//end main menu
-	
-
 }//end class
