@@ -7,13 +7,6 @@ public class patient {
 	boolean isCritical; //depending on illness, to er right away, make sure room is reserved
 	String illness;//reason for admission
 	
-	public static void toSurgery() {
-		
-	}
-	
-	public static void ERtoNormal() {
-		
-	}
 //==============================================
 	public void setName(String name) {
 		this.name=name;
@@ -36,8 +29,12 @@ public class patient {
 		return this.timeStay;
 	}
 //==============================================
-	public void setIsCritical(boolean isCritical) {
-		this.isCritical=isCritical;
+	public void setIsCritical(String isCritical) {
+		if(isCritical.equals("true")) {
+			this.isCritical=true;
+		}else {
+			this.isCritical=false;
+		}
 	}
 	public boolean getIsCritical(){
 		return this.isCritical;
