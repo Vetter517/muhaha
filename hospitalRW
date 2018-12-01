@@ -17,6 +17,31 @@ public class hospitalRW {
 			String line;
 	        int cnt=0;
 	        int i=0;
+	        while((line = br.readLine())!=null) {
+	        	if(!(line.equals("/")) && cnt==0 && line.matches("\\d")) {
+	        		i = Integer.parseInt(line);
+                	roomArray[i] = new room();
+                	roomArray[i].setNumber(Integer.parseInt(line));
+                	cnt=1;
+                }else if(!(line.equals("/")) && cnt==1) {
+                	roomArray[i].setRoomType(line);
+                	cnt=2;
+                	line = br.readLine();
+                	if(line.equals("/")) {
+                		roomArray[i].setIsOccupied(false);
+                		cnt=0;
+                	} else if(!(line.equals("/"))){
+                		patient p = new patient();
+	                	p.setName(line);
+	                	p.setEmail(br.readLine());
+	                	p.setTimeStay(Integer.parseInt(br.readLine()));
+	                	p.setIsCritical(Boolean.parseBoolean(br.readLine()));
+	                	roomArray[i].setPatient(p);
+	                	roomArray[i].setIsOccupied(true);
+	                	cnt=0;
+                	}//end add patient
+	        	}//end if
+	        }//end while
 			
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();
