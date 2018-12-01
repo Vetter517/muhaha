@@ -1,4 +1,5 @@
 package hospital;
+import java.util.Scanner;
 import hospital.patient;
 import hospital.room;
 
