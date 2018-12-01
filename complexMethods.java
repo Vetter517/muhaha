@@ -76,7 +76,7 @@ public class complexMethods {
 		}
 	}//end movement
 	
-	public static void moveToSurgery(room r) {
+	public static void moveToSurgery(room r, room s) {
 		if(s.isOccupied==true) {
 			System.out.println("Unable to move at this time. The room is occupied by "+ s.getPatient()+".");
 		}else {
