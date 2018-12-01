@@ -35,7 +35,7 @@ public class hospitalRW {
 	                	p.setName(line);
 	                	p.setEmail(br.readLine());
 	                	p.setTimeStay(Integer.parseInt(br.readLine()));
-	                	p.setIsCritical(Boolean.parseBoolean(br.readLine()));
+	                	p.setIsCritical(br.readLine());
 	                	roomArray[i].setPatient(p);
 	                	roomArray[i].setIsOccupied(true);
 	                	cnt=0;
