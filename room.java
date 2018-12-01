@@ -43,45 +43,5 @@ public class room {
 		return this.roomType;
 	}
 //==============================================
-	public static void roomCheck(room[] roomArray) {
-		for(int a=0;a<roomArray.length;a++) {
-			room x = roomArray[a];
-			if(x.isOccupied==true) {
-				System.out.println("Room "+x.getNumber()+" is occupied.");
-			}else {
-				System.out.println("Room "+x.getNumber()+" is not occupied.");
-			}//end if
-		}//end for
-	}//end check
 	
-	static void specificCheck(room r) {
-		System.out.println("Looking for a specific room?");
-	}
-	
-	public static int reserveRoom(room[] roomArray, patient patient) {
-		int i=0;
-		room temp;
-		for(i=0;i<roomArray.length;i++) {
-			temp = roomArray[i];
-			if(patient.isCritical==false) {
-				if(temp.isOccupied==false) {
-					temp.patient = patient;
-					roomArray[i]=temp;
-					roomArray[i].isOccupied=true;
-					return i;
-				}
-			}
-		}
-		return 30;
-	}//end reserve rooms
-
-	
-	public static void releaseRoom(room room) {
-		if(room.isOccupied==true) {
-			System.out.println(room.getPatient().getName()+" has been released from the hospital.");
-			System.out.println("Sending reciept email to: "+room.getPatient().getEmail());
-			room.isOccupied = false;
-			room.patient = null;
-		}
-	}
 }//end class
