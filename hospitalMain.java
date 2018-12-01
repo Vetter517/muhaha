@@ -66,7 +66,7 @@ public class hospitalMain {
 			}else if(input.equals("3")) {
 				hospital.room.roomCheck(rooms);
 			}else if(input.equals("4")) {
-				System.out.println("Enter the room that you want to view (1-25 normal, 26-27 ER, 28-30 surgery)");
+				System.out.println("Enter the room that you want to view (0-24 normal, 25-26 ER, 27-29 surgery)");
 				hospital.room.specificCheck(rooms[scanner.nextInt()]);
 			}else if(input.equals("5")) {
 				
