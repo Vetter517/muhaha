@@ -6,9 +6,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import hospital.room;
+import hospital.patient;
 
 public class hospitalRW {
-	
 	
 	public static void createHospital(room[] roomArray, String filename) {
 		try {
@@ -18,7 +19,7 @@ public class hospitalRW {
 	        int cnt=0;
 	        int i=0;
 	        while((line = br.readLine())!=null) {
-	        	if(!(line.equals("/")) && cnt==0 && line.matches("\\d")) {
+	        	if(!(line.equals("/")) && cnt==0) {
 	        		i = Integer.parseInt(line);
                 	roomArray[i] = new room();
                 	roomArray[i].setNumber(Integer.parseInt(line));
@@ -36,20 +37,20 @@ public class hospitalRW {
 	                	p.setEmail(br.readLine());
 	                	p.setTimeStay(Integer.parseInt(br.readLine()));
 	                	p.setIsCritical(br.readLine());
+	                	p.setIllness(br.readLine());
 	                	roomArray[i].setPatient(p);
 	                	roomArray[i].setIsOccupied(true);
 	                	cnt=0;
                 	}//end add patient
 	        	}//end if
 	        }//end while
-			
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();
 	    } catch (IOException ex) {
 	    	ex.printStackTrace();
-	    }
+	    }//end try catch
 	}//end creation
-	
+//=====================================================================================	
 	public static void closeHospital(room[] roomArray, String filename) {
 		try{
 	        File file = new File("hospitalText.txt");
@@ -70,7 +71,7 @@ public class hospitalRW {
 	        		bw.newLine();
 	        		bw.write(temp.patient.getEmail());
 	        		bw.newLine();
-	        		bw.write(temp.patient.getTimeStay());
+	        		bw.write(Integer.toString(temp.patient.getTimeStay()));
 	        		bw.newLine();
 	        		bw.write(String.valueOf(temp.patient.getIsCritical()));
 	        		bw.newLine();
@@ -79,14 +80,14 @@ public class hospitalRW {
 	        	}
 	        	//After each room, put a '/' an then add a new line if we still have rooms to add.
 		        bw.write("/");
-		        if(j!=29) {
+		        if(j!=9) {
 		        	bw.newLine();
 		        }
-	        }
+	        }//end for
 	        bw.close();
 	        System.out.println("Have a great day!");
 	    }catch(IOException e){
 	        e.printStackTrace();
-	    }
+	    }//end try catch
 	}//end close
 }//end class
