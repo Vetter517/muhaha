@@ -65,15 +65,16 @@ public class hospitalMain {
 				complexMethods.roomCheck(rooms);
 			}else if(input.equals("4")) {
 				System.out.println("Enter the room that you want to view (0-7 normal,8 surgery, 9 emergency room)");
-				complexMethods.specificCheck(rooms[scanner.nextInt()]);
+				int check = scanner.nextInt();
+				complexMethods.specificCheck(rooms[check]);
 			}else if(input.equals("5")) {
 				complexMethods.movement(rooms);
 			}else if(input.equals("6")) {
 				scanner.close();
 				System.out.println("Exiting the Program. File will be saved.");
 				break;
-			}
-			
+			}//end if/else check
 		}//end while
 	}//end main menu
 }//end class
+
