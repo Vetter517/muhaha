@@ -14,7 +14,7 @@ public class complexMethods {
 			}//end if
 		}//end for
 	}//end check
-	
+//=================================================================================================		
 	public static void specificCheck(room r) {
 		System.out.println("Room "+r.getNumber()+" is occupied by "+r.getPatient().getName()+".");
 		System.out.println("\tEmail: "+r.getPatient().getEmail());
@@ -22,7 +22,7 @@ public class complexMethods {
 		System.out.println("\tIn critical condition: "+r.getPatient().getIsCritical());
 		System.out.println("\tReason for stay: "+r.getPatient().getIllness());
 	}//end specific
-	
+//=================================================================================================	
 	public static int reserveRoom(room[] roomArray, patient patient) {
 		int i=0;
 		room temp;
@@ -46,7 +46,7 @@ public class complexMethods {
 		}
 		return 10;
 	}//end reserve rooms
-
+//=================================================================================================	
 	public static void releaseRoom(room room) {
 		if(room.isOccupied==true) {
 			System.out.println(room.getPatient().getName()+" has been released from the hospital.");
@@ -55,7 +55,7 @@ public class complexMethods {
 			room.patient = null;
 		}
 	}//end release
-	
+//=================================================================================================		
 	public static void movement(room[] r) {
 		Scanner s = new Scanner(System.in);
 		System.out.println("1. Move a patient to Surgery");
@@ -75,7 +75,7 @@ public class complexMethods {
 			System.out.println("Input number 1, 2, or 3");
 		}
 	}//end movement
-	
+//=================================================================================================		
 	public static void moveToSurgery(room r, room s) {
 		if(s.isOccupied==true) {
 			System.out.println("Unable to move at this time. The room is occupied by "+ s.getPatient()+".");
@@ -86,17 +86,17 @@ public class complexMethods {
 			s.isOccupied=true;
 		}
 	}//end surgery
-	
+//=================================================================================================		
 	public static void removeFromSurgery(room r) {
 		r.patient=null;
 		r.isOccupied=false;
 	}//end remove from surgery
-	
-	public static void moveFromER(room r) {
+//=================================================================================================		
+	public static patient moveFromER(room r) {
 		patient temp = r.getPatient();
 		r.patient=null;
 		temp.isCritical=false;
 		r.isOccupied=false;
 		return temp;
-	}//end move from er
+	}//end move from emergency
 }//end class
