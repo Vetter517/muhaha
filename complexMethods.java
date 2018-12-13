@@ -16,11 +16,15 @@ public class complexMethods {
 	}//end check
 //=================================================================================================		
 	public static void specificCheck(room r) {
-		System.out.println("Room "+r.getNumber()+" is occupied by "+r.getPatient().getName()+".");
-		System.out.println("\tEmail: "+r.getPatient().getEmail());
-		System.out.println("\tTime staying in hospital: "+r.getPatient().getTimeStay());
-		System.out.println("\tIn critical condition: "+r.getPatient().getIsCritical());
-		System.out.println("\tReason for stay: "+r.getPatient().getIllness());
+		if(r.getPatient()!=null) {	
+			System.out.println("Room "+r.getNumber()+" is occupied by "+r.getPatient().getName()+".");
+			System.out.println("\tEmail: "+r.getPatient().getEmail());
+			System.out.println("\tTime staying in hospital: "+r.getPatient().getTimeStay());
+			System.out.println("\tIn critical condition: "+r.getPatient().getIsCritical());
+			System.out.println("\tReason for stay: "+r.getPatient().getIllness());
+		}else {
+			System.out.println("That room is open");
+		}
 	}//end specific
 //=================================================================================================	
 	public static int reserveRoom(room[] roomArray, patient patient) {
