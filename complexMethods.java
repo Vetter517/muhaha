@@ -23,7 +23,7 @@ public class complexMethods {
 			System.out.println("\tIn critical condition: "+r.getPatient().getIsCritical());
 			System.out.println("\tReason for stay: "+r.getPatient().getIllness());
 		}else {
-			System.out.println("That room is open");
+			System.out.println("That room is open.");
 		}
 	}//end specific
 //=================================================================================================	
@@ -72,9 +72,13 @@ public class complexMethods {
 		}else if(x==2) {
 			removeFromSurgery(r[8]);
 		}else if(x==3) {
-			System.out.println("Enter the new amount of time to stay in the hospital:");
-			r[9].patient.timeStay=s.nextInt();
-			reserveRoom(r,moveFromER(r[9]));
+			if(r[9].isOccupied==true && r[9].getPatient()!=null) {
+				System.out.println("Enter the new amount of time to stay in the hospital:");
+				r[9].patient.timeStay=s.nextInt();
+				reserveRoom(r,moveFromER(r[9]));
+			}else {
+				System.out.println("The ER is currently open.");
+			}
 		}else {
 			System.out.println("Input number 1, 2, or 3");
 		}
@@ -83,11 +87,13 @@ public class complexMethods {
 	public static void moveToSurgery(room r, room s) {
 		if(s.isOccupied==true) {
 			System.out.println("Unable to move at this time. The room is occupied by "+ s.getPatient()+".");
-		}else {
+		}else if(s.isOccupied==false && r.isOccupied==true){
 			patient temp = r.getPatient();
 			s.patient=temp;
 			s.patient.isCritical=true;
 			s.isOccupied=true;
+		}else {
+			System.out.println("The room you have entered is currently unoccupied and there is no one to move to surgery.");
 		}
 	}//end surgery
 //=================================================================================================		
